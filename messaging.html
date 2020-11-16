@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chat app</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- nav -->
+      <div class="leftside">
+        <ul class="nav sidebar">
+          <a href="#" class="text-center" style="margin: 50px 0px">
+            <img
+              src=""
+              class="rounded-circle"
+              width="100px"
+              alt=""
+              id="profile"
+            />
+            <p id="name" style="color: black; margin: 10px 0"></p>
+          </a>
+          <!-- this is our left navigation -->
+          <li class="nav__menuList">
+            <a href="#"><img src="assets/icons/home.svg" alt="" /></a>
+            <span>HOME</span>
+          </li>
+          <li class="nav__menuList">
+            <a href="#"><img src="assets/icons/chat.png" alt="" /></a>
+            <span class="nav__menuList__active">CHAT</span>
+          </li>
+          <li class="nav__menuList">
+            <a href="#"><img src="assets/icons/contact.png" alt="" /></a>
+            <span>CONTACT</span>
+          </li>
+          <li class="nav__menuList">
+            <a href="#"><img src="assets/icons/notification.png" alt="" /></a>
+            <span>NOTIFICATION</span>
+          </li>
+          <li class="nav__menuList">
+            <a href="#"><img src="assets/icons/calendar.png" alt="" /></a>
+            <span>CALENDAR</span>
+          </li>
+          <li class="nav__menuList">
+            <a href="#"><img src="assets/icons/setting.png" alt="" /></a>
+            <span>SETTINGS</span>
+          </li>
+          <li class="nav__menuList logout" id="logout">
+            <a href="#"><img src="assets/icons/logout.png" alt="" /></a>
+            <span>LOGOUT</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- the main chat window  -->
+      <div id="content-wrapper">
+        <div class="row">
+          <!-- here are our all message  -->
+          <div class="col-lg-4">
+            <!-- this is my chats wala heading  -->
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h2>Chats</h2>
+                <p>Recent chats</p>
+              </div>
+              <div>
+                <button class="btn btn-primary">+ Create new</button>
+              </div>
+            </div>
+
+            <!-- this is my search bar -->
+            <div>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <button class="btn" type="button" style="">
+                    <i class="fa fa-search fa-sm" style="font-size: 15px"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  class="content__input"
+                  placeholder="Search for..."
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                />
+              </div>
+            </div>
+            <!-- this is my message container  -->
+            <div id="message-container"></div>
+          </div>
+          <div
+            class="col-lg-8"
+            style="
+              height: 700px;
+              background-color: white;
+              padding: 10px;
+              border-radius: 20px;
+            "
+          >
+            <!-- chat window head  -->
+            <div class="chatheader mt-2">
+              <div class="message_head d-flex align-items-center">
+                <img
+                  id="profile"
+                  src="https://lh4.googleusercontent.com/-CliK5n3mJYU/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnwiwz7TmrWy0LAvzPJJEivXeye7g/photo.jpg"
+                  class="rounded-circle"
+                  width="40px"
+                />
+
+                <p
+                  id="username"
+                  style="margin: 0; padding: 0; padding-left: 10px; flex: 1"
+                ></p>
+                <span style="color: rgb(0, 255, 0)">online</span>
+              </div>
+
+              <hr />
+            </div>
+
+            <!-- the chat messages  -->
+            <div class="chatmessages" id="chatmessages"></div>
+
+            <!-- chat footer -->
+            <div class="chatfooter">
+              <hr />
+              <div class="d-flex">
+                <button class="btn btn-primary rounded-circle">
+                  <img src="assets/icons/plus.svg" height="20px" alt="" />
+                </button>
+                <input
+                  id="message__text"
+                  type="text"
+                  class="content__input flex-1"
+                  placeholder="Search for..."
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                  style="margin-left: 10px"
+                />
+                <button
+                  class="btn btn-primary rounded-circle"
+                  id="message__send"
+                >
+                  <img
+                    src="assets/icons/navigation-2.svg"
+                    height="20px"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/messaging.js"></script>
+  </body>
+</html>
